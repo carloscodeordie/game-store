@@ -7,3 +7,7 @@ export interface AuthLayoutProps {
 export interface SubmitButtonProps {
   label: string
 }
+
+export interface FormMessage {
+  message: string | null
+}

@@ -3,10 +3,22 @@
 import { Input } from '@nextui-org/react'
 import Link from 'next/link'
 import SubmitButton from './SubmitButton'
+import { FormMessage } from '@/interfaces/interfaces'
+import { useFormState } from 'react-dom'
+import { registerUser } from '@/actions/signupAction'
+
+const initState: FormMessage = {
+  message: null,
+}
 
 const SignupForm = () => {
+  const [formState, action] = useFormState<FormMessage>(registerUser, initState)
+
   return (
-    <form className="bg-content1 border border-default-100 shadow-lg rounded-md p-3 flex flex-col gap-2 ">
+    <form
+      action={action}
+      className="bg-content1 border border-default-100 shadow-lg rounded-md p-3 flex flex-col gap-2 "
+    >
       <h3 className="my-4">Sign up</h3>
       <Input fullWidth size="lg" placeholder="Email" name="email" required />
       <Input
@@ -21,6 +33,7 @@ const SignupForm = () => {
       <div>
         <Link href="/signin">{`Already have an account?`}</Link>
       </div>
+      <p>{formState?.message && <p>{formState.message}</p>}</p>
     </form>
   )
 }
