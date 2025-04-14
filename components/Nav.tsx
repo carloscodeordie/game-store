@@ -18,7 +18,7 @@ const Nav = () => {
   return (
     <nav className="h-[65px] border-b border-default-50 flex items-center px-6 gap-4">
       <div>
-        <Tooltip content="New Event">
+        <Tooltip content="New Event" placement="right">
           <Button
             isLoading={isPending}
             isIconOnly
@@ -30,9 +30,6 @@ const Nav = () => {
             <CirclePlus size={16} />
           </Button>
         </Tooltip>
-      </div>
-      <div className="w-1/2">
-        <Input size="sm" variant="faded" placeholder="search" />
       </div>
     </nav>
   )
