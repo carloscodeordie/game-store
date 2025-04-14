@@ -72,3 +72,21 @@ export const signin = async ({
 
   return { user, token }
 }
+
+export const getUserFromToken = async (token: {
+  name: string
+  value: string
+}) => {
+  const payload = jwt.verify(token.value, SECRET) as { id: string }
+
+  const user = await db.query.users.findFirst({
+    where: eq(users.id, payload.id),
+    columns: {
+      id: true,
+      email: true,
+      createdAt: true,
+    },
+  })
+
+  return user
+}

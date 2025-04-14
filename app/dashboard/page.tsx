@@ -1,11 +1,20 @@
-const Home = async () => {
+import RentsChart from '@/components/RentsChart'
+import { getRentsCount } from '@/actions/rentsCountAction'
+import { getVideogamesCount } from '@/actions/videogamesCountAction'
+
+const Dashboard = async () => {
+  const rents = await getRentsCount()
+  const videogames = await getVideogamesCount()
+
   return (
-    <div className="w-full flex h-full justify-center items-center">
+    <div className="w-full flex justify-center items-center">
       <div>
-        <h4 className="text-lg">Game Store</h4>
+        <div className="my-8 w-full">
+          <RentsChart rents={rents} videogames={videogames} />
+        </div>
       </div>
     </div>
   )
 }
 
-export default Home
+export default Dashboard

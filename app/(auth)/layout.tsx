@@ -1,8 +1,8 @@
-import { AuthLayoutProps } from '@/interfaces/interfaces'
+import { DefaultLayoutProps } from '@/interfaces/interfaces'
 import Image from 'next/image'
 import Logo from '@/images/logo.png'
 
-const AuthLayout = ({ children }: AuthLayoutProps) => {
+const AuthLayout = ({ children }: DefaultLayoutProps) => {
   return (
     <div>
       <div className="w-screen flex justify-center items-center mb-12">

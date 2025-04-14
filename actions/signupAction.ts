@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation'
 import { COOKIE_NAME } from '@/utils/constants'
 import { signup } from '@/utils/auth'
 import { authSchema } from '@/schemas/schemas'
-import { FormMessage } from '@/interfaces/interfaces'
+import { FormMessageProps } from '@/interfaces/interfaces'
 
 export const registerUser = async (prevState: unknown, formData: FormData) => {
   const data = authSchema.parse({
@@ -20,7 +20,7 @@ export const registerUser = async (prevState: unknown, formData: FormData) => {
     serverCookies.set(COOKIE_NAME, token)
   } catch (error: unknown) {
     console.log('ERROR - Failed to sign up', error)
-    const formError: FormMessage = {
+    const formError: FormMessageProps = {
       message: 'Failed to sign up',
     }
     return formError

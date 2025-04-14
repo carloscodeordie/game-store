@@ -3,16 +3,19 @@
 import { Input } from '@nextui-org/react'
 import Link from 'next/link'
 import SubmitButton from './SubmitButton'
-import { FormMessage } from '@/interfaces/interfaces'
+import { FormMessageProps } from '@/interfaces/interfaces'
 import { useFormState } from 'react-dom'
 import { registerUser } from '@/actions/signupAction'
 
-const initState: FormMessage = {
+const initState: FormMessageProps = {
   message: null,
 }
 
 const SignupForm = () => {
-  const [formState, action] = useFormState<FormMessage>(registerUser, initState)
+  const [formState, action] = useFormState<FormMessageProps>(
+    registerUser,
+    initState
+  )
 
   return (
     <form

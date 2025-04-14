@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-export interface AuthLayoutProps {
+export interface DefaultLayoutProps {
   children: ReactNode
 }
 
@@ -8,6 +8,11 @@ export interface SubmitButtonProps {
   label: string
 }
 
-export interface FormMessage {
+export interface FormMessageProps {
   message: string | null
+}
+
+export interface RentsChartProps {
+  rents: number
+  videogames: number
 }
